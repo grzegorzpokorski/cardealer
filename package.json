@@ -1,6 +1,10 @@
 {
   "name": "cardealer",
   "private": true,
+  "author": {
+    "name": "Grzegorz Pokorski",
+    "email": "mr.pokorski@gmail.com"
+  },
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
