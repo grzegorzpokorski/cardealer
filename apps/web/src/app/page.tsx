@@ -1,5 +1,3 @@
 export default function Page(): JSX.Element {
-  return (
-    <h1>web</h1>
-  );
+  return <h1 className="text-red-500">web</h1>;
 }
