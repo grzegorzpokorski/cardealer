@@ -1,35 +1,34 @@
-const { resolve } = require("node:path");
-
-const project = resolve(process.cwd(), "tsconfig.json");
-
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint", "import"],
   extends: [
-    "eslint:recommended",
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
-    "eslint-config-turbo",
   ],
-  globals: {
-    React: true,
-    JSX: true,
+  parserOptions: {
+    project: ["tsconfig.json"],
   },
-  env: {
-    node: true,
-    browser: true,
-  },
-  plugins: ["only-warn"],
   settings: {
-    "import/resolver": {
-      typescript: {
-        project,
-      },
+    react: {
+      version: "detect",
     },
   },
   ignorePatterns: [
-    // Ignore dotfiles
-    ".*.js",
+    "build/",
+    ".turbo/",
+    "dist/",
     "node_modules/",
+    "*.js",
+    "*.jsx",
   ],
-  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+  rules: {
+    "@next/next/no-html-link-for-pages": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
+  },
 };
