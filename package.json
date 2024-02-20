@@ -11,11 +11,13 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "lint:fix": "turbo run lint:fix --parallel",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "husky": "9.0.11",
     "prettier": "3.2.5",
     "turbo": "latest"
   },
