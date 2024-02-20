@@ -8,14 +8,17 @@
   "scripts": {
     "build": "turbo build",
     "start": "turbo run start",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint --",
     "lint:fix": "turbo run lint:fix --parallel",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
     "prettier": "3.2.5",
     "turbo": "latest"
   },

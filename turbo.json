@@ -8,9 +8,7 @@
     "start": {
       "dependsOn": ["build"]
     },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
+    "lint": {},
     "lint:fix": {
       "cache": false
     },
