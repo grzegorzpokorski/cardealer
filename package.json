@@ -8,8 +8,8 @@
   "scripts": {
     "build": "turbo build",
     "start": "turbo run start",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint --",
     "lint:fix": "turbo run lint:fix --parallel",
     "format": "prettier --write .",
     "prepare": "husky"
