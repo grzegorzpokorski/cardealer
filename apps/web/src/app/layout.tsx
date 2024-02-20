@@ -1,4 +1,4 @@
-import "@/styles/global";
+import "@/styles/e";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
