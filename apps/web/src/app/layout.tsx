@@ -1,4 +1,4 @@
-import "@/styles/global.cs";
+import "@/styles/global.";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
