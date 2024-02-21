@@ -1,5 +1,6 @@
 import Fastify from "fastify";
-import { TypeBoxTypeProvider } from "@fastify/type-provider-typebox";
+import type { TypeBoxTypeProvider } from "@fastify/type-provider-typebox";
+import { Type } from "@fastify/type-provider-typebox";
 
 const fastify = Fastify({
   logger:
@@ -22,17 +23,24 @@ const fastify = Fastify({
   },
 }).withTypeProvider<TypeBoxTypeProvider>();
 
-fastify.get("/ping", async (request, reply) => {
-  return "pong\n";
-});
+await fastify.register(import("@fastify/helmet"), { global: true });
+await fastify.register(import("@fastify/cors"));
 
-fastify.route({
-  method: "GET",
-  url: "/",
-  handler: () => {
-    return { message: "hello" };
+await fastify.register(import("./modules/test/test.routes.js"));
+
+fastify.get(
+  "/",
+  {
+    schema: {
+      response: {
+        200: Type.String(),
+      },
+    },
   },
-});
+  async () => {
+    return `Zostań na chwilę i posłuchaj`;
+  },
+);
 
 fastify.listen({ port: 3001 }, (err, address) => {
   if (err) {
@@ -41,3 +49,5 @@ fastify.listen({ port: 3001 }, (err, address) => {
   }
   console.log(`fastify listening at ${address}`);
 });
+
+export { fastify };
